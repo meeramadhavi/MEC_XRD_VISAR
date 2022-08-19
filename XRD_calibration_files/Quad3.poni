@@ -1,0 +1,36 @@
+# Nota: C-Order, 1 refers to the Y axis, 2 to the X axis 
+# Calibration done at Sun Feb  6 03:56:36 2022
+poni_version: 2
+Detector: Detector
+Detector_config: {"pixel1": 9.999999999999999e-05, "pixel2": 9.999999999999999e-05, "max_shape": null}
+Distance: 0.1014834779347645
+Poni1: 0.050044516865904276
+Poni2: 0.0022071413962640412
+Rot1: 0.44548007490090147
+Rot2: 0.0020147769694045924
+Rot3: -2.8870450970432305e-06
+Wavelength: 7.29e-11
+# Nota: C-Order, 1 refers to the Y axis, 2 to the X axis 
+# Calibration done at Sun Feb  6 04:32:57 2022
+poni_version: 2
+Detector: Detector
+Detector_config: {"pixel1": 9.999999999999999e-05, "pixel2": 9.999999999999999e-05, "max_shape": null}
+Distance: 0.10229397862648539
+Poni1: 0.049098430989764755
+Poni2: 0.002547731280229653
+Rot1: 0.4490168056813907
+Rot2: 0.006340573807458893
+Rot3: -3.0838819465398606e-05
+Wavelength: 7.29e-11
+# Nota: C-Order, 1 refers to the Y axis, 2 to the X axis 
+# Calibration done at Sun Feb  6 05:32:37 2022
+poni_version: 2
+Detector: Detector
+Detector_config: {"pixel1": 9.999999999999999e-05, "pixel2": 9.999999999999999e-05, "max_shape": null}
+Distance: 0.10199333447491357
+Poni1: 0.05014607096143286
+Poni2: 0.005434907794244694
+Rot1: 0.47580816858263075
+Rot2: -0.0027678776158510977
+Rot3: 5.373011551775428e-06
+Wavelength: 7.29e-11
