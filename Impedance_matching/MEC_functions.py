@@ -46,7 +46,7 @@ def impedance_match(data_1 = str, data_2 = str, interface_velocity = float):
     
     # Creating a vertical line at interface velocity for intersection
     x_vertical =np.zeros(50000)+ interface_velocity
-    y_vertical = np.linspace(0,400, 50000)
+    y_vertical = np.linspace(0,1400, 50000)
 
     line_1 = LineString(np.column_stack((x_vertical, y_vertical)))
     line_2 = LineString(np.column_stack((x_LIF, y_LiF_interp)))
@@ -55,7 +55,7 @@ def impedance_match(data_1 = str, data_2 = str, interface_velocity = float):
     x_1, y_1 = intersection.xy
     
     # Creating a horizontal line
-    x_horizontal = np.linspace(-10,10,50000)
+    x_horizontal = np.linspace(-30,30,50000)
     y_horizontal = np.zeros(50000)+y_1
 
     line_1 = LineString(np.column_stack((x_horizontal, y_horizontal)))
