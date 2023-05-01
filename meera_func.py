@@ -33,4 +33,16 @@ def get_files(directory, extension):
 
 
 
+def line_mask(x, m = 4.8, c = 345):
+    """_summary_
 
+    Args:
+        x (_type_): _description_
+        m (float, optional): _description_. Defaults to 4.8.
+        c (int, optional): _description_. Defaults to 345.
+
+    Returns:
+        _type_: _description_
+    """
+    y = m*x+c
+    return y
