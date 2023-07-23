@@ -3,6 +3,7 @@ from PIL import Image
 import fabio
 import os
 from lmfit import Model
+import numpy as np
 
 def import_tiff(filename):
     """opens and returns the TIFF file
@@ -74,20 +75,20 @@ def get_fit_guess(df, run_no = int, num_peaks = int):
     return p0, (B_low, B_high)
 
 
-def mixfit3l4g(x, B, m, a0, x0, sigma0, a1, x1, w1, a2, x2, w2, a3, x3, w3, a4, x4, sigma4, a5, x5, sigma5, a6, x6, sigma6):
-    return  m*x + B +  a0*np.exp(-4*np.log(2)*(x-x0)**2/(sigma0**2))+ a1 *(w1/ ((x-x1)**2+w1**2)) + a2 *(w2/ ((x-x2)**2+w2**2)) +  a3 *(w3/ ((x-x3)**2+w3**2)) + a4*np.exp(-4*np.log(2)*(x-x4)**2/(sigma4**2))+ a5*np.exp(-4*np.log(2)*(x-x5)**2/(sigma5**2)) + a6*np.exp(-4*np.log(2)*(x-x6)**2/(sigma6**2))
+# def mixfit3l4g(x, B, m, a0, x0, sigma0, a1, x1, w1, a2, x2, w2, a3, x3, w3, a4, x4, sigma4, a5, x5, sigma5, a6, x6, sigma6):
+#     return  m*x + B +  a0*np.exp(-4*np.log(2)*(x-x0)**2/(sigma0**2))+ a1 *(w1/ ((x-x1)**2+w1**2)) + a2 *(w2/ ((x-x2)**2+w2**2)) +  a3 *(w3/ ((x-x3)**2+w3**2)) + a4*np.exp(-4*np.log(2)*(x-x4)**2/(sigma4**2))+ a5*np.exp(-4*np.log(2)*(x-x5)**2/(sigma5**2)) + a6*np.exp(-4*np.log(2)*(x-x6)**2/(sigma6**2))
 
-def mixfit3l3g(x, B, m, a1, x1, w1, a2, x2, w2, a3, x3, w3, a4, x4, sigma4, a5, x5, sigma5, a6, x6, sigma6):
-    return  m*x + B + a1 *(w1/ ((x-x1)**2+w1**2)) + a2 *(w2/ ((x-x2)**2+w2**2)) +  a3 *(w3/ ((x-x3)**2+w3**2)) + a4*np.exp(-4*np.log(2)*(x-x4)**2/(sigma4**2))+ a5*np.exp(-4*np.log(2)*(x-x5)**2/(sigma5**2)) + a6*np.exp(-4*np.log(2)*(x-x6)**2/(sigma6**2))
+# def mixfit3l3g(x, B, m, a1, x1, w1, a2, x2, w2, a3, x3, w3, a4, x4, sigma4, a5, x5, sigma5, a6, x6, sigma6):
+#     return  m*x + B + a1 *(w1/ ((x-x1)**2+w1**2)) + a2 *(w2/ ((x-x2)**2+w2**2)) +  a3 *(w3/ ((x-x3)**2+w3**2)) + a4*np.exp(-4*np.log(2)*(x-x4)**2/(sigma4**2))+ a5*np.exp(-4*np.log(2)*(x-x5)**2/(sigma5**2)) + a6*np.exp(-4*np.log(2)*(x-x6)**2/(sigma6**2))
 
-def mixfit3l4g(x, B, m, a1, x1, w1, a2, x2, w2, a3, x3, w3, a4, x4, sigma4, a5, x5, sigma5, a6, x6, sigma6, a7, x7, sigma7):
-    return  m*x + B + a1 *(w1/ ((x-x1)**2+w1**2)) + a2 *(w2/ ((x-x2)**2+w2**2)) +  a3 *(w3/ ((x-x3)**2+w3**2)) + a4*np.exp(-4*np.log(2)*(x-x4)**2/(sigma4**2))+ a5*np.exp(-4*np.log(2)*(x-x5)**2/(sigma5**2)) + a6*np.exp(-4*np.log(2)*(x-x6)**2/(sigma6**2))+ a7*np.exp(-4*np.log(2)*(x-x7)**2/(sigma7**2))
-
-   
-def mixfit4l3g(x, B, m, a0, x0, w0, a1, x1, w1, a2, x2, w2, a3, x3, w3, a4, x4, sigma4, a5, x5, sigma5, a6, x6, sigma6):
-    return  m*x + B +  a0 *(w0/ ((x-x0)**2+w0**2)) + a1 *(w1/ ((x-x1)**2+w1**2)) + a2 *(w2/ ((x-x2)**2+w2**2)) +  a3 *(w3/ ((x-x3)**2+w3**2)) + a4*np.exp(-4*np.log(2)*(x-x4)**2/(sigma4**2))+ a5*np.exp(-4*np.log(2)*(x-x5)**2/(sigma5**2)) + a6*np.exp(-4*np.log(2)*(x-x6)**2/(sigma6**2))
+# def mixfit3l4g(x, B, m, a1, x1, w1, a2, x2, w2, a3, x3, w3, a4, x4, sigma4, a5, x5, sigma5, a6, x6, sigma6, a7, x7, sigma7):
+#     return  m*x + B + a1 *(w1/ ((x-x1)**2+w1**2)) + a2 *(w2/ ((x-x2)**2+w2**2)) +  a3 *(w3/ ((x-x3)**2+w3**2)) + a4*np.exp(-4*np.log(2)*(x-x4)**2/(sigma4**2))+ a5*np.exp(-4*np.log(2)*(x-x5)**2/(sigma5**2)) + a6*np.exp(-4*np.log(2)*(x-x6)**2/(sigma6**2))+ a7*np.exp(-4*np.log(2)*(x-x7)**2/(sigma7**2))
 
    
-def mixfit5l3g(x, B, m, a0, x0, w0, a1, x1, w1, a2, x2, w2, a3, x3, w3, a4, x4, sigma4, a5, x5, sigma5, a6, x6, sigma6, a7, x7, w7):
-    return  m*x + B +  a0 *(w0/ ((x-x0)**2+w0**2)) + a1 *(w1/ ((x-x1)**2+w1**2)) + a2 *(w2/ ((x-x2)**2+w2**2)) +  a3 *(w3/ ((x-x3)**2+w3**2)) + a4*np.exp(-4*np.log(2)*(x-x4)**2/(sigma4**2))+ a5*np.exp(-4*np.log(2)*(x-x5)**2/(sigma5**2)) + a6*np.exp(-4*np.log(2)*(x-x6)**2/(sigma6**2) + a7 *(w7/ ((x-x7)**2+w7**2)))
+# def mixfit4l3g(x, B, m, a0, x0, w0, a1, x1, w1, a2, x2, w2, a3, x3, w3, a4, x4, sigma4, a5, x5, sigma5, a6, x6, sigma6):
+#     return  m*x + B +  a0 *(w0/ ((x-x0)**2+w0**2)) + a1 *(w1/ ((x-x1)**2+w1**2)) + a2 *(w2/ ((x-x2)**2+w2**2)) +  a3 *(w3/ ((x-x3)**2+w3**2)) + a4*np.exp(-4*np.log(2)*(x-x4)**2/(sigma4**2))+ a5*np.exp(-4*np.log(2)*(x-x5)**2/(sigma5**2)) + a6*np.exp(-4*np.log(2)*(x-x6)**2/(sigma6**2))
+
+   
+# def mixfit5l3g(x, B, m, a0, x0, w0, a1, x1, w1, a2, x2, w2, a3, x3, w3, a4, x4, sigma4, a5, x5, sigma5, a6, x6, sigma6, a7, x7, w7):
+#     return  m*x + B +  a0 *(w0/ ((x-x0)**2+w0**2)) + a1 *(w1/ ((x-x1)**2+w1**2)) + a2 *(w2/ ((x-x2)**2+w2**2)) +  a3 *(w3/ ((x-x3)**2+w3**2)) + a4*np.exp(-4*np.log(2)*(x-x4)**2/(sigma4**2))+ a5*np.exp(-4*np.log(2)*(x-x5)**2/(sigma5**2)) + a6*np.exp(-4*np.log(2)*(x-x6)**2/(sigma6**2) + a7 *(w7/ ((x-x7)**2+w7**2)))
 
